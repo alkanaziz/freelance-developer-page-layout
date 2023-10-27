@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@
 
 :root {
   font-size: 62.5%;
+  font-family: 'Jura', sans-serif;
 }
 
 /* KOPTTEIL */
@@ -24,7 +27,6 @@
 
 .developerImage {
   height: 50%;
-  padding-top: 1rem;
   background-image: url(images/developer.jpeg);
   background-repeat: no-repeat;
   background-position: center;
@@ -32,13 +34,15 @@
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 
   color: orange;
   font-size: 3rem;
   text-shadow: 5px 10px 25px black;
+}
+
+p {
+  margin-top: 1rem;
 }
 
 nav {
@@ -83,6 +87,8 @@ nav ul button:active {
 
 /* HAUPTTEIL - MAIN */
 
+/* Für Großes Bildschirm */
+
 .articles {
   display: grid;
   grid-template-areas:
@@ -112,9 +118,16 @@ nav ul button:active {
   border-radius: 0.5rem;
 }
 
-.article:hover {
-    scale: 1.1;
-    transition: all 1s ease;
+.article-blue:hover {
+  scale: 1.1;
+  transition: all 1s ease;
+  background-color: lightblue;
+}
+
+.article-orange:hover {
+  scale: 1.1;
+  transition: all 1s ease;
+  background-color: lightsalmon;
 }
 
 .item-1,
@@ -123,14 +136,12 @@ nav ul button:active {
   justify-content: end;
 }
 
-.article-1,
-.article-3 {
+.article-blue {
   margin-right: 5rem;
   border: 2px solid #00c1fc;
 }
 
-.article-2,
-.article-4 {
+.article-orange {
   margin-left: 5rem;
   border: 2px solid #fc6000;
 }
@@ -169,14 +180,6 @@ nav ul button:active {
   grid-area: punkt-4;
 }
 
-.punkt-blue {
-  position: relative;
-}
-
-.punkt-orange {
-  
-}
-
 .punkt {
   width: 1px;
   border: 1px solid rgb(207, 207, 207);
@@ -184,8 +187,6 @@ nav ul button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  position: relative;
 }
 
 .punkt-blue::after {
@@ -206,57 +207,254 @@ nav ul button:active {
   background: #fc6000;
 }
 
-/* Kartenteil */
+@media (min-width: 993px) {
+  /* Kartenteil */
 
-.cards {
-  width: 80%;
-  height: 40vh;
-  margin: 2rem auto;
-  background-color: rgb(241, 241, 241);
-  border-radius: 0.5rem;
-  position: relative;
-}
+  .cards {
+    width: 80%;
+    height: 40vh;
+    margin: 2rem auto;
+    background-color: rgb(241, 241, 241);
+    border-radius: 0.5rem;
+    position: relative;
+  }
 
-.card {
-  width: 50%;
-  height: 70%;
-  font-size: 1.5rem;
-  position: absolute;
-  border-radius: 0.5rem;
-  padding: 5rem 3rem;
-}
+  .card {
+    width: 50%;
+    height: auto;
+    font-size: 1.5rem;
+    position: absolute;
+    border-radius: 0.5rem;
+    padding: 5rem 3rem;
+  }
 
-.cards p {
-    margin-top: 1rem;
-}
+  .card-1 {
+    background-color: #ffa502;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+  }
 
-.card-1 {
-  background-color: #ffa502;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-}
+  .card-2 {
+    background-color: #8deee0;
+    top: 6vh;
+    left: 30%;
+    z-index: 2;
+  }
 
-.card-2 {
-  background-color: #8deee0;
-  top: 6vh;
-  left: 30%;
-  z-index: 2;
-}
+  .card-3 {
+    background-color: #d696f1;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+  }
 
-.card-3 {
-  background-color: #d696f1;
-  bottom: 0;
-  right: 0;
-  z-index: 3;
-}
-
-.card-1:hover,
-.card-2:hover,
-.card-3:hover {
+  .card-1:hover,
+  .card-2:hover,
+  .card-3:hover {
     z-index: 5;
     scale: 1.1;
     transition: all 1s ease;
+  }
+}
+
+/* Für medium Geräte */
+@media (min-width: 577px) and (max-width: 992px) {
+  /* Kartenteil */
+
+  .cards {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: rgb(241, 241, 241);
+    border-radius: 0.5rem;
+  }
+
+  .card {
+    width: 90%;
+    padding: 5rem 3rem;
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .card-1 {
+    background-color: #ffa502;
+  }
+
+  .card-2 {
+    background-color: #8deee0;
+  }
+
+  .card-3 {
+    background-color: #d696f1;
+  }
+
+  .card-1:hover,
+  .card-2:hover,
+  .card-3:hover {
+    scale: 1.1;
+    transition: all 1s ease;
+  }
+}
+
+/* Für Mobile Aussicht */
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .articles {
+    display: grid;
+    grid-template-areas:
+      "item-1"
+      "punkt-1"
+      "item-2"
+      "punkt-2"
+      "item-3"
+      "punkt-3"
+      "item-4"
+      "punkt-4";
+
+    width: 80%;
+    margin: 2rem auto;
+    padding: 2rem 3rem;
+
+    background-color: rgb(241, 241, 241);
+    border-radius: 0.5rem;
+  }
+
+  .article {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    margin: auto;
+  }
+
+  .article-blue:hover {
+    scale: 1.1;
+    transition: all 1s ease;
+    background-color: lightblue;
+  }
+
+  .article-orange:hover {
+    scale: 1.1;
+    transition: all 1s ease;
+    background-color: lightsalmon;
+  }
+
+  .article-blue {
+    border: 2px solid #00c1fc;
+  }
+
+  .article-orange {
+    border: 2px solid #fc6000;
+  }
+
+  .item-1 {
+    grid-area: item-1;
+  }
+
+  .item-2 {
+    grid-area: item-2;
+  }
+
+  .item-3 {
+    grid-area: item-3;
+  }
+
+  .item-4 {
+    grid-area: item-4;
+  }
+
+  /* PUNKTEN IN HAUPTTEIL */
+
+  .punkt-1 {
+    grid-area: punkt-1;
+  }
+
+  .punkt-2 {
+    grid-area: punkt-2;
+  }
+
+  .punkt-3 {
+    grid-area: punkt-3;
+  }
+
+  .punkt-4 {
+    grid-area: punkt-4;
+  }
+
+  .punkt {
+    height: 5rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(207, 207, 207);
+  }
+
+  .punkt-4 {
+    align-items: end;
+    height: 3.5rem;
+  }
+
+  .punkt-blue::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00c1fc;
+  }
+
+  .punkt-orange::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fc6000;
+  }
+
+  /* Kartenteil */
+
+  .cards {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: rgb(241, 241, 241);
+    border-radius: 0.5rem;
+  }
+
+  .card {
+    width: 90%;
+    padding: 5rem 3rem;
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .card-1 {
+    background-color: #ffa502;
+  }
+
+  .card-2 {
+    background-color: #8deee0;
+  }
+
+  .card-3 {
+    background-color: #d696f1;
+  }
+
+  .card-1:hover,
+  .card-2:hover,
+  .card-3:hover {
+    scale: 1.1;
+    transition: all 1s ease;
+  }
 }
 
 /* FUßTEIL */
@@ -274,24 +472,24 @@ footer p {
   font-size: 1.5rem;
 }
 
-footer button{
-    width: 50px;
-    height: 50px;
-    background-color: lightcoral;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: fixed;
-    bottom: 0.5rem;
-    right: 3rem;
+footer button {
+  width: 50px;
+  height: 50px;
+  background-color: lightcoral;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 3rem;
 }
 
-footer button:hover{
-    scale: 1.1;
-    transition: all 0.5s ease;
+footer button:hover {
+  scale: 1.1;
+  transition: all 0.5s ease;
 }
 
-footer button:active{
-    scale: 0.95;
+footer button:active {
+  scale: 0.95;
 }
